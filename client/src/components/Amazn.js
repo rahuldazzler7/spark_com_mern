@@ -15,7 +15,7 @@ class Amazn extends React.Component{
             categoryCollection:[]
         }
         this.showProds = this.showProds.bind(this);
-     //this.clickMe= this.clickMe.bind(this);
+        this.clickMe= this.clickMe.bind(this);
         this.showCategories = this.showCategories.bind(this);
     }
 
@@ -28,7 +28,7 @@ class Amazn extends React.Component{
                 })
             })
 
-        axios.get("http://localhost:8000/filter")    
+        axios.get(`http://localhost:8000/filter?cat=${this.state.query}`)    
             
         .then(res=>{
             this.setState({
@@ -39,17 +39,28 @@ class Amazn extends React.Component{
                })
         
     }
+     clickMe(e){
+              this.setState({
+                query: e.target.id
+              })  
+              axios.get(`http://localhost:8000/filter?cat=${this.state.query}`)    
+            
+              .then(res=>{
+                  this.setState({
+                      prodCollection: res.data.resu
+                  })
+                  
+                        
+                     })
+    }
  
     showCategories(){
-        function  clickMe(a){
-                
-            console.log(a)
-        }
+        
         return this.state.categoryCollection.map((cats,j)=>{
          
             return(
                 <li key={j} class="list-group-item d-flex justify-content-between align-items-center">
-                    <a  style={{color:"black", cursor:"pointer"}} id="categoryName" value={cats.categoryName}  onClick={clickMe}>{cats.catergoryName}</a>
+                    <a  style={{color:"black", cursor:"pointer"}} id={cats.catergoryName} onClick={this.clickMe}>{cats.catergoryName}</a>
                         
                         <span class="badge badge-primary badge-pill">{cats.count}</span>
                         
@@ -84,7 +95,7 @@ class Amazn extends React.Component{
                 <div className="row">
                 
                 <div style={{paddingTop:"70px", paddingLeft:"10px"}}>
-                    <ul class="list-group" style={{width:"250px"}}>
+                    <ul className="list-group" style={{width:"250px"}}>
                    {this.showCategories()}
                     </ul>
                 </div>
