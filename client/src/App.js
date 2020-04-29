@@ -21,7 +21,7 @@ function App() {
 
           <Protectedroute path="/home" component={Cursol} />
           <Protectedroute path="/edit/:id" component = {Editpost}/>
-          <Route path="/Amazn" component={Amazn} />
+          <Route path="/amazn" component={Amazn} />
         </Switch>
       </Router>
     </div>

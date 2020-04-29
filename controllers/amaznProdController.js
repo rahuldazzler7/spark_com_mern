@@ -1,15 +1,23 @@
 const products = require('../models/Amaznprod');
-const _=require('lodash');
 
 
 
 let getAllprods = (req,res)=>{
+    if(req.query.search){
+        const letsearch = new RegExp(req.query.search, 'gi');
+        products.find({$or:[{title: letsearch},{category: letsearch},{sub_category:letsearch},{tags:letsearch}, {source:letsearch}]},(err,prods)=>{
+            if(err){return console.log(err);}
+            else{
+                res.json({status:true, prods: prods});
+            }
+        });
+    }else{
     products.find({},(err, prods)=>{
         if(err) console.log(err);
         else{
             res.json({status:true, prods})
         }
-    })
+    })}
 }
 
 let categories = (req, res)=>{
@@ -56,17 +64,30 @@ let categories = (req, res)=>{
 }
 
 let categoricalProds =(req, res)=>{
-    if(req.query.cat){
-    products.find({"category":req.query.cat})
-    .then(resu=>{
-        console.log(resu)
-        res.json({status:true, resu})
-    })
+  
+if(req.query.search){
+    const letsearch = new RegExp(req.query.search, 'gi');
+    products.find({$or:[{title: letsearch},{category: letsearch},{sub_category:letsearch},{tags:letsearch}, {source:letsearch}]},(err,prods)=>{
+        if(err){return console.log(err);}
+        else{
+            res.json({status:true, prods: prods});
+        }
+    });
 }else{
-    products.find({})
-    .then(resu=>{
-        res.json({status:true, resu})
-    })
+    if(req.query.cat){
+        products.find({"category":req.query.cat})
+        .then(resu=>{
+            console.log(resu)
+            res.json({status:true, resu})
+        })
+    } 
+    
+    else{
+        products.find({})
+        .then(resu=>{
+            res.json({status:true, resu})
+        })
+    }
 }
 }
 
