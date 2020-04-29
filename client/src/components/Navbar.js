@@ -21,7 +21,7 @@ class Navbar extends React.Component {
   // }
   
  loginOptions(){
-  if(localStorage.getItem("token")){
+  if(this.props.profile){
     window.onclick = function (event) {
       if (!event.target.matches(".nav-link dropdown-toggle")) {
         var dropdowns = document.getElementsByClassName("dropdown-menu");

@@ -41,7 +41,7 @@ class Amazn extends React.Component{
                })
         
     }
-     clickMe(e){
+    clickMe(e){
               this.setState({
                 query: e.target.id
               })  
@@ -100,7 +100,7 @@ class Amazn extends React.Component{
                 prodCollection: res.data.prods
             })
 
-            if(typeof this.state.prodCollection== undefined){
+            if(!this.state.prodCollection){
                 this.setState({
                     prodCollection: []
                 })
