@@ -12,9 +12,9 @@ class Card extends React.Component{
   }
 
   editAccess(){
-    //console.log("user"+localStorage.getItem("username"))
+    //console.log("user"+sessionStorage.getItem("username"))
     //console.log(this.props)
-    if (localStorage.getItem("username") == this.props.author){
+    if (sessionStorage.getItem("username") == this.props.author){
       return(
         <div className="container" style={{paddingLeft: "550px"}}>
         <Link to={`/edit/${this.props.id}`} >Edit</Link>
@@ -24,7 +24,7 @@ class Card extends React.Component{
   }
   
   render(){
-    //console.log(localStorage.getItem)
+    //console.log(sessionStorage.getItem)
         return(
             <div className="container">
 

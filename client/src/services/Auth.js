@@ -10,7 +10,7 @@ import { Redirect } from "react-router-dom";
 //   }
 
 //   login() {
-//     if (localStorage.getItem("token")) {
+//     if (sessionStorage.getItem("token")) {
 //       this.setState({
 //         authenticated: true,
 //       });
@@ -23,7 +23,7 @@ import { Redirect } from "react-router-dom";
 
 function Auth() {
   let authenticated = false;
-  if (localStorage.getItem("token")) {
+  if (sessionStorage.getItem("token")) {
     authenticated = true;
   } else {
     authenticated = false;

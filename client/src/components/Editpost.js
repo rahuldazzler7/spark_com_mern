@@ -127,7 +127,7 @@ class Editpost extends React.Component {
   render() {
     return (
       <div>
-        <Navbar profile={localStorage.getItem("navName")} />
+        <Navbar profile={sessionStorage.getItem("navName")} />
         <div className="container" style={{ padding: 20 }}>
           <form onSubmit={this.onSubmitEdit}>
             <fieldset>

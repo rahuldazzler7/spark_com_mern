@@ -23,7 +23,7 @@ class Amazn extends React.Component{
     }
 
     componentDidMount(){
-        console.log("tok >>"+localStorage.getItem("token"))
+        console.log("tok >>"+sessionStorage.getItem("token"))
         axios.get("/amznprods")
         .then(res=>{
             

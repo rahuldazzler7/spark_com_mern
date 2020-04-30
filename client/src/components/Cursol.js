@@ -19,7 +19,7 @@ class Cursol extends React.Component {
   }
 
   componentDidMount() {
-    const tok = localStorage.getItem("token");
+    const tok = sessionStorage.getItem("token");
     axios
       .get("/home", {
         headers: { "x-auth-token": tok.slice(3) },
@@ -27,8 +27,8 @@ class Cursol extends React.Component {
       .then((res) => {
         this.setState({ postCollection: res.data.posts });
         console.log(res)
-        //console.log("token>>" + localStorage.getItem("token"));
-        //console.log("name >>" + localStorage.getItem("navName"));
+        //console.log("token>>" + sessionStorage.getItem("token"));
+        //console.log("name >>" + sessionStorage.getItem("navName"));
       })
       .catch((err) => {
         console.log("something went wrong");
@@ -73,7 +73,7 @@ class Cursol extends React.Component {
 
 
   loadToken() {
-    const token = localStorage.getItem("token");
+    const token = sessionStorage.getItem("token");
     this.setState({ authToken: token });
     //console.log("my token>>"+token)
   }
@@ -81,7 +81,7 @@ class Cursol extends React.Component {
   render() {
     return (
       <div>
-        <Navbar profile={localStorage.getItem("navName")} />
+        <Navbar profile={sessionStorage.getItem("navName")} />
         <div
           id="carouselExampleCaptions"
           className="carousel slide"

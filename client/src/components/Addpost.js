@@ -42,9 +42,9 @@ class Addpost extends React.Component {
   }
   //   onChangeLat() {
   //     console.log("Lat I am working");
-  //     if (localStorage.getItem("Latitude >>")) {
+  //     if (sessionStorage.getItem("Latitude >>")) {
   //       this.setState({
-  //         lat: localStorage.getItem("Latitude >>"),
+  //         lat: sessionStorage.getItem("Latitude >>"),
   //       });
   //     } else {
   //       this.setState({
@@ -54,9 +54,9 @@ class Addpost extends React.Component {
   //   }
   //   onChangeLong() {
   //     console.log("Long I am working");
-  //     if (localStorage.getItem("Longitude >>")) {
+  //     if (sessionStorage.getItem("Longitude >>")) {
   //       this.setState({
-  //         lat: localStorage.getItem("Longitude >>"),
+  //         lat: sessionStorage.getItem("Longitude >>"),
   //       });
   //     } else {
   //       this.setState({
@@ -75,10 +75,10 @@ class Addpost extends React.Component {
       data.append("title",this.state.title);
       data.append("description",this.state.description);
       data.append("type",this.state.type);
-      data.append("username", localStorage.getItem("username"));
-      data.append("id", localStorage.getItem("id"));
+      data.append("username", sessionStorage.getItem("username"));
+      data.append("id", sessionStorage.getItem("id"));
 
-      console.log(`Username and pass ${localStorage.getItem("username")}, ${localStorage.getItem("id")}`)
+      console.log(`Username and pass ${sessionStorage.getItem("username")}, ${sessionStorage.getItem("id")}`)
 
       // const postObject = {
       //   title: this.state.title,

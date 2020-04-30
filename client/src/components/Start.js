@@ -40,8 +40,8 @@ class Start extends React.Component {
         const lat = position.coords.latitude;
         const long = position.coords.longitude;
 
-        localStorage.setItem("Latitude >>", lat);
-        localStorage.setItem("Longitude >>", long);
+        sessionStorage.setItem("Latitude >>", lat);
+        sessionStorage.setItem("Longitude >>", long);
       });
     } else {
       console.log("geolocation is not available");
@@ -76,8 +76,8 @@ class Start extends React.Component {
       email: this.state.email,
       password: this.state.password,
       password2: this.state.password2,
-      lng: localStorage.getItem("Longitude >>"),
-      lat: localStorage.getItem("Latitude >>")
+      lng: sessionStorage.getItem("Longitude >>"),
+      lat: sessionStorage.getItem("Latitude >>")
     };
     axios
       .post("/users/signup", signUpObject)
@@ -126,10 +126,10 @@ class Start extends React.Component {
         let username = res.data.user.username;
         let id = res.data.user.id;
 
-        await localStorage.setItem("token", tokken);
-        await localStorage.setItem("navName", navName);
-        await localStorage.setItem("username", username);
-        await localStorage.setItem("id", id);
+        await sessionStorage.setItem("token", tokken);
+        await sessionStorage.setItem("navName", navName);
+        await sessionStorage.setItem("username", username);
+        await sessionStorage.setItem("id", id);
         window.location = "/home";
         //console.log(res.data)
         } else{

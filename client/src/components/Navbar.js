@@ -77,12 +77,12 @@ class Navbar extends React.Component {
  }
 
   signout(e) {
-  localStorage.clear();
+  sessionStorage.clear();
   window.location = "/";
 }
 
   // signout() {
-  //   localStorage.clear();
+  //   sessionStorage.clear();
   //   window.location = "/";
   // }
   render(){
