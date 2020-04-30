@@ -21,7 +21,7 @@ class Cursol extends React.Component {
   componentDidMount() {
     const tok = localStorage.getItem("token");
     axios
-      .get("http://localhost:8000/home", {
+      .get("/home", {
         headers: { "x-auth-token": tok.slice(3) },
       })
       .then((res) => {

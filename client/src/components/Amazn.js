@@ -24,7 +24,7 @@ class Amazn extends React.Component{
 
     componentDidMount(){
         console.log("tok >>"+localStorage.getItem("token"))
-        axios.get("http://localhost:8000/amznprods")
+        axios.get("/amznprods")
         .then(res=>{
             
                 this.setState({
@@ -32,7 +32,7 @@ class Amazn extends React.Component{
                 })
             })
 
-        axios.get(`http://localhost:8000/filter?cat=${this.state.query}`)    
+        axios.get(`/filter?cat=${this.state.query}`)    
             
         .then(res=>{
             this.setState({
@@ -45,7 +45,7 @@ class Amazn extends React.Component{
               this.setState({
                 query: e.target.id
               })  
-              axios.get(`http://localhost:8000/filter?cat=${this.state.query}`)    
+              axios.get(`/filter?cat=${this.state.query}`)    
             
               .then(res=>{
                   this.setState({
@@ -93,7 +93,7 @@ class Amazn extends React.Component{
             querys:e.target.value
           })
           console.log(e.target.value)
-          axios.get(`http://localhost:8000/filter?search=${e.target.value}`)    
+          axios.get(`/filter?search=${e.target.value}`)    
                     
           .then(res=>{
             this.setState({

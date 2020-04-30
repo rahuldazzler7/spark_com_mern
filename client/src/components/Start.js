@@ -80,7 +80,7 @@ class Start extends React.Component {
       lat: localStorage.getItem("Latitude >>")
     };
     axios
-      .post("http://localhost:8000/users/signup", signUpObject)
+      .post("/users/signup", signUpObject)
       .then((res) => {
         //window.location = "/";
         if (res.data.status == true) {
@@ -118,7 +118,7 @@ class Start extends React.Component {
     };
 
     axios
-      .post("http://localhost:8000/users/signin", signinObject)
+      .post("/users/signin", signinObject)
       .then(async(res) => {
         if(res.data.status == true){
         let tokken = res.data.token;

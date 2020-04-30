@@ -96,7 +96,7 @@ class Addpost extends React.Component {
       };
 
       axios
-        .post("http://localhost:8000/users/newpost", data, config)
+        .post("/users/newpost", data, config)
         .then((result) => {
           let a = JSON.stringify(result);
           console.log("here you go >>" + a);

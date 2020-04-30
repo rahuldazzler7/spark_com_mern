@@ -23,7 +23,7 @@ class Editpost extends React.Component {
   componentDidMount() {
     axios
       .get(
-        `http://localhost:8000/edit/${this.props.location.pathname.slice(6)}`
+        `/edit/${this.props.location.pathname.slice(6)}`
       )
       .then((res) => {
         this.setState({
@@ -75,7 +75,7 @@ class Editpost extends React.Component {
 
       axios
         .patch(
-          `http://localhost:8000/users/edit/${this.props.location.pathname.slice(
+          `/users/edit/${this.props.location.pathname.slice(
             6
           )}`,
           data,
@@ -103,7 +103,7 @@ class Editpost extends React.Component {
   onDeleteset(e) {
 
     axios.delete(
-      `http://localhost:8000/users/delete/${this.props.location.pathname.slice(
+      `/users/delete/${this.props.location.pathname.slice(
         6
       )}`
     ).then(res=>{
