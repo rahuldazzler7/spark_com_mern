@@ -2,7 +2,9 @@ import React, { Fragment } from "react";
 import "../index.css";
 import axios from "axios";
 import Navbar from './Navbar';
-import Cookie from "js-cookie"
+import Cookie from "js-cookie";
+import { useHistory } from "react-router-dom";
+
 
 class Start extends React.Component {
   constructor(props) {
@@ -131,7 +133,7 @@ class Start extends React.Component {
         await Cookie.set("navName", navName);
         await Cookie.set("username", username);
         await Cookie.set("id", id);
-        window.location = "/home";
+         this.props.history.push("/home")
         //console.log(Cookie.get("token"))
         } else{
           console.log(res.data.msg)
