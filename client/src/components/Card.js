@@ -31,8 +31,8 @@ class Card extends React.Component{
   <div id="cardly">
     <div className="card border-info mb-3" >
       <div className="row no-gutters" >
-        <div className="col-md-4" >
-          <img src={this.props.imgsrc}  className="card-img" alt="..."></img>
+        <div className="col-md-4" style={{height:80}}>
+          <img src={this.props.imgsrc}  className="card-img" alt="..." style={{maxWidth: "230px",maxHeight: "171px"}}></img>
         </div>
         <div className="col-md-8" >
         { this.editAccess()}
