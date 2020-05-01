@@ -133,7 +133,8 @@ class Start extends React.Component {
         await Cookie.set("navName", navName);
         await Cookie.set("username", username);
         await Cookie.set("id", id);
-         this.props.history.push("/home")
+        
+        this.props.history.push("/home")
         //console.log(Cookie.get("token"))
         } else{
           console.log(res.data.msg)
