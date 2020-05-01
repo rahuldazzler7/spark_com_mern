@@ -17,7 +17,7 @@ function App() {
     <div>
       <Router>
         <Switch>
-          <Route path="/" exact component={Start} />
+          <Protectedroute path="/" exact component={Start} />
 
           <Protectedroute path="/home" component={Cursol} />
           <Protectedroute path="/edit/:id" component = {Editpost}/>

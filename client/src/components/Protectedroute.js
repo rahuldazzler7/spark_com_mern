@@ -8,17 +8,30 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
       {...rest}
       render={(props) => {
         if (window.sessionStorage.getItem("token")) {
-          return <Component {...props} />;
+          return (<div>
+              <Component {...props} />
+              <Redirect
+              to={{
+                pathname: "/home",
+                state: {
+                  from: props.location[0],
+                },
+              }}
+            />
+          </div>)
         } else {
           return (
+            <div>
+              <Component {...props}/>
             <Redirect
               to={{
                 pathname: "/",
                 state: {
-                  from: props.location,
+                  from: props.location[0],
                 },
               }}
             />
+            </div>
           );
         }
       }}

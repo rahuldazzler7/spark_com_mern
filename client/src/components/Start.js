@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import "../index.css";
 import axios from "axios";
 import Navbar from './Navbar';
-import { useHistory } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 
 class Start extends React.Component {
@@ -132,8 +132,12 @@ class Start extends React.Component {
         await window.sessionStorage.setItem("navName", navName);
         await window.sessionStorage.setItem("username", username);
         await window.sessionStorage.setItem("id", id);
-
-        window.location="/home";
+        return (
+        <Redirect path="/home" />
+        )
+        //console.log(this.props)
+        //this.props.history.push("/home")
+        //window.location="/home";
         //console.log(window.sessionStorage.getItem("token"))
         } else{
           console.log(res.data.msg)

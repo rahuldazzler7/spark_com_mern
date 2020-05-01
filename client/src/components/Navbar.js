@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-
+import {Link} from 'react-router-dom';
 
 
 class Navbar extends React.Component {
@@ -77,7 +77,7 @@ class Navbar extends React.Component {
  }
 
   signout(e) {
-  window.Cookies.remove("navName","username","id","token");
+  window.sessionStorage.clear("navName","username","id","token")
   window.location = "/";
 }
 
@@ -127,9 +127,8 @@ class Navbar extends React.Component {
           <div className="collapse navbar-collapse" id="navbarColor01">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item active">
-                <a className="nav-link" href="/">
-                  Home <span className="sr-only">(current)</span>
-                </a>
+                <Link className="nav-link" to="/home">Home</Link>
+                
               </li>
               <li className="nav-item dropdown">
             <a
