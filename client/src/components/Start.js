@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import "../index.css";
 import axios from "axios";
 import Navbar from './Navbar';
-import Cookie from "js-cookie";
 import { useHistory } from "react-router-dom";
 
 
@@ -43,8 +42,8 @@ class Start extends React.Component {
         const lat = position.coords.latitude;
         const long = position.coords.longitude;
 
-        await Cookie.set("Latitude >>", lat);
-        await Cookie.set("Longitude >>", long);
+        await window.sessionStorage.setItem("Latitude >>", lat);
+        await window.sessionStorage.setItem("Longitude >>", long);
       });
     } else {
       console.log("geolocation is not available");
@@ -79,8 +78,8 @@ class Start extends React.Component {
       email: this.state.email,
       password: this.state.password,
       password2: this.state.password2,
-      lng: Cookie.get("Longitude >>"),
-      lat: Cookie.get("Latitude >>")
+      lng: window.sessionStorage.getItem("Longitude >>"),
+      lat: window.sessionStorage.getItem("Latitude >>")
     };
     axios
       .post("/users/signup", signUpObject)
@@ -129,13 +128,13 @@ class Start extends React.Component {
         let username = res.data.user.username;
         let id = res.data.user.id;
 
-        await Cookie.set("token", tokken);
-        await Cookie.set("navName", navName);
-        await Cookie.set("username", username);
-        await Cookie.set("id", id);
-        
-        this.props.history.push("/home")
-        //console.log(Cookie.get("token"))
+        await window.sessionStorage.setItem("token", tokken);
+        await window.sessionStorage.setItem("navName", navName);
+        await window.sessionStorage.setItem("username", username);
+        await window.sessionStorage.setItem("id", id);
+
+        window.location="/home";
+        //console.log(window.sessionStorage.getItem("token"))
         } else{
           console.log(res.data.msg)
         }

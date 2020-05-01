@@ -1,14 +1,13 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import Start from "./Start";
-import Cookie from "js-cookie"
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
       render={(props) => {
-        if (Cookie.get("token")) {
+        if (window.sessionStorage.getItem("token")) {
           return <Component {...props} />;
         } else {
           return (

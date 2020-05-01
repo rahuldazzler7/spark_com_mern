@@ -1,7 +1,7 @@
 import React from 'react';
 import '../index.css';
 import {Link} from 'react-router-dom';
-import Cookie from "js-cookie";
+
 
 
 class Card extends React.Component{
@@ -14,7 +14,7 @@ class Card extends React.Component{
   editAccess(){
     //console.log("user"+sessionStorage.getItem("username"))
     //console.log(this.props)
-    if (Cookie.get("username") == this.props.author){
+    if (window.sessionStorage.getItem("username") == this.props.author){
       return(
         <div className="container" style={{paddingLeft: "550px"}}>
         <Link to={`/edit/${this.props.id}`} >Edit</Link>

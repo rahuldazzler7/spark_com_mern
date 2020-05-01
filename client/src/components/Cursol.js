@@ -6,7 +6,6 @@ import Card from "./Card";
 import Navbar from "./Navbar";
 import Addpost from "./Addpost";
 import tokken from "./Start";
-import Cookie from "js-cookie"
 
 class Cursol extends React.Component {
   constructor(props) {
@@ -20,7 +19,7 @@ class Cursol extends React.Component {
   }
 
   componentDidMount() {
-    const tok = Cookie.get("token");
+    const tok = window.sessionStorage.getItem("token");
     axios
       .get("/home", {
         headers: { "x-auth-token": tok.slice(3) },
@@ -74,7 +73,7 @@ class Cursol extends React.Component {
 
 
   loadToken() {
-    const token = Cookie.get("token");
+    const token = window.sessionStorage.getItem("token");
     this.setState({ authToken: token });
     //console.log("my token>>"+token)
   }
@@ -82,7 +81,7 @@ class Cursol extends React.Component {
   render() {
     return (
       <div>
-        <Navbar profile={Cookie.get("navName")} />
+        <Navbar profile={window.sessionStorage.getItem("navName")} />
         <div
           id="carouselExampleCaptions"
           className="carousel slide"

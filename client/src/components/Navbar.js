@@ -1,6 +1,5 @@
 import React from "react";
 import "../App.css";
-import Cookie from "js-cookie";
 
 
 
@@ -78,7 +77,7 @@ class Navbar extends React.Component {
  }
 
   signout(e) {
-  Cookie.remove("navName","username","id","token");
+  window.Cookies.remove("navName","username","id","token");
   window.location = "/";
 }
 

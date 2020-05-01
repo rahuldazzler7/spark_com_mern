@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import "../index.css";
-import Cookie from "js-cookie"
 
 class Addpost extends React.Component {
   constructor(props) {
@@ -76,10 +75,10 @@ class Addpost extends React.Component {
       data.append("title",this.state.title);
       data.append("description",this.state.description);
       data.append("type",this.state.type);
-      data.append("username", Cookie.get("username"));
-      data.append("id", Cookie.get("id"));
+      data.append("username", window.sessionStorage.getItem("username"));
+      data.append("id", window.sessionStorage.getItem("id"));
 
-      console.log(`Username and pass ${Cookie.get("username")}, ${Cookie.get("id")}`)
+      console.log(`Username and pass ${window.sessionStorage.getItem("username")}, ${window.sessionStorage.getItem("id")}`)
 
       // const postObject = {
       //   title: this.state.title,
