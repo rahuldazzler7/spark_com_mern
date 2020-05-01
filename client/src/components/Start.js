@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import "../index.css";
 import axios from "axios";
 import Navbar from './Navbar';
+import Cookie from "js-cookie"
 
 class Start extends React.Component {
   constructor(props) {
@@ -40,8 +41,8 @@ class Start extends React.Component {
         const lat = position.coords.latitude;
         const long = position.coords.longitude;
 
-        sessionStorage.setItem("Latitude >>", lat);
-        sessionStorage.setItem("Longitude >>", long);
+        await Cookie.set("Latitude >>", lat);
+        await Cookie.set("Longitude >>", long);
       });
     } else {
       console.log("geolocation is not available");
@@ -76,8 +77,8 @@ class Start extends React.Component {
       email: this.state.email,
       password: this.state.password,
       password2: this.state.password2,
-      lng: sessionStorage.getItem("Longitude >>"),
-      lat: sessionStorage.getItem("Latitude >>")
+      lng: Cookie.get("Longitude >>"),
+      lat: Cookie.get("Latitude >>")
     };
     axios
       .post("/users/signup", signUpObject)
@@ -126,12 +127,12 @@ class Start extends React.Component {
         let username = res.data.user.username;
         let id = res.data.user.id;
 
-        await sessionStorage.setItem("token", tokken);
-        await sessionStorage.setItem("navName", navName);
-        await sessionStorage.setItem("username", username);
-        await sessionStorage.setItem("id", id);
+        await Cookie.set("token", tokken);
+        await Cookie.set("navName", navName);
+        await Cookie.set("username", username);
+        await Cookie.set("id", id);
         window.location = "/home";
-        //console.log(res.data)
+        //console.log(Cookie.get("token"))
         } else{
           console.log(res.data.msg)
         }

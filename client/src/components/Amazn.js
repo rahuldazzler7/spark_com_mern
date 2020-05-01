@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from'./Navbar';
 import axios from "axios";
 import Amzncard from './Amzncard';
+import Cookie from 'js-cookie'
 
 
 
@@ -23,7 +24,7 @@ class Amazn extends React.Component{
     }
 
     componentDidMount(){
-        console.log("tok >>"+sessionStorage.getItem("token"))
+        console.log("tok >>"+Cookie.get("token"))
         axios.get("/amznprods")
         .then(res=>{
             
