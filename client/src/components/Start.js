@@ -132,9 +132,11 @@ class Start extends React.Component {
         await window.sessionStorage.setItem("navName", navName);
         await window.sessionStorage.setItem("username", username);
         await window.sessionStorage.setItem("id", id);
-        return (
-        <Redirect path="/home" />
-        )
+
+        this.props.history.push("/home")
+        //return (
+        // <Redirect path="/home" />
+        // )
         //console.log(this.props)
         //this.props.history.push("/home")
         //window.location="/home";
