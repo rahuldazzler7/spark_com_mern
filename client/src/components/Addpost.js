@@ -102,7 +102,8 @@ class Addpost extends React.Component {
           console.log("here you go >>" + a);
           if (result.data.status == true) {
             console.log(result.data.msg);
-            window.location = "/home";
+            
+            this.props.history.push("/")
           } 
           if (result.data.status == false) {
             console.log(result.data.msg);
@@ -133,9 +134,9 @@ class Addpost extends React.Component {
           </a>
         </div>
         <div
-          className="modal fade"
+          className="modal"
           id="postadd"
-          tabindex="-1"
+          tabIndex="-1"
           role="dialog"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"

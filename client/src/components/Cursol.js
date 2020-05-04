@@ -19,6 +19,7 @@ class Cursol extends React.Component {
   }
 
   componentDidMount() {
+    if(window.sessionStorage.getItem("token")){
     const tok = window.sessionStorage.getItem("token");
     axios
       .get("/home", {
@@ -32,7 +33,11 @@ class Cursol extends React.Component {
       })
       .catch((err) => {
         console.log("something went wrong");
+        this.props.history.push("/")
       });
+    }else{
+      this.props.history.push("/")
+    }
   }
 
   postcard() {
@@ -80,7 +85,7 @@ class Cursol extends React.Component {
 
   render() {
     return (
-      <div>
+      <div data-dismiss="modal">
         <Navbar profile={window.sessionStorage.getItem("navName")} />
         <div
           id="carouselExampleCaptions"

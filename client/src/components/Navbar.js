@@ -24,7 +24,7 @@ class Navbar extends React.Component {
   if(this.props.profile){
     window.onclick = function (event) {
       if (!event.target.matches(".nav-link dropdown-toggle")) {
-        var dropdowns = document.getElementsByClassName("dropdown-menu");
+        var dropdowns = document.getElementById("myDropdownprof");
         var i;
         for (i = 0; i < dropdowns.length; i++) {
           var openDropdown = dropdowns[i];
@@ -34,14 +34,14 @@ class Navbar extends React.Component {
         }
       }
     };
-    function myFunction() {
+    function profilenamecall() {
     
-      document.getElementById("myDropdown").classList.toggle("show");
+      document.getElementById("myDropdownprof").classList.toggle("show");
     }
     
       return(
-        <div>
-          <li className="nav-item dropdown">
+        <div className="nav-item dropdown" style={{paddingRight:"20px"}}>
+        <div >
             <a
               className="nav-link dropdown-toggle"
               href="#"
@@ -50,13 +50,13 @@ class Navbar extends React.Component {
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
-              onClick={myFunction}
+              onClick={profilenamecall}
             >
               {this.props.profile}
             </a>
             <div
               className="dropdown-menu"
-              id="myDropdown"
+              id="myDropdownprof"
               aria-labelledby="navbarDropdown"
             >
               <a className="dropdown-item" href="/signout">
@@ -70,7 +70,7 @@ class Navbar extends React.Component {
                 Signout
               </p>
             </div>
-          </li>
+        </div>
         </div>
       )
   }

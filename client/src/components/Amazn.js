@@ -39,6 +39,9 @@ class Amazn extends React.Component{
                 prodCollection: res.data.resu
             })     
                })
+               .catch(err=>{
+                window.location = "/amazn";
+               })
         
     }
     clickMe(e){
@@ -52,6 +55,9 @@ class Amazn extends React.Component{
                       prodCollection: res.data.resu
                   })
                         
+                     })
+                     .catch(err=>{
+                         window.location = "/amazn"
                      })
     }
  
@@ -73,7 +79,6 @@ class Amazn extends React.Component{
    
 
     showProds(){
-        
         return this.state.prodCollection.map((prods, i)=>{
             return(
                 <Amzncard 
@@ -86,6 +91,7 @@ class Amazn extends React.Component{
                  />
             )
         })
+        
     }
 
     searching(e){
@@ -107,7 +113,9 @@ class Amazn extends React.Component{
             }
                     
                  })
-        
+        .catch(err=>{
+            window.location ="/amazn"
+        })
     }
 
     searchbox(){
