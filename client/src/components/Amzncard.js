@@ -13,7 +13,7 @@ class Amzncard extends React.Component{
     <div className="card border-info mb-3" >
       <div className="row no-gutters" >
         <div className="col-md-4" style={{height:50}}>
-          <img src={this.props.imgsrc}  className="card-img" alt="..."style={{height:120}} ></img>
+          <img src={this.props.imgsrc}  className="card-img" alt="..."style={{height:120, width:150}} ></img>
         </div>
         <div className="col-md-8" >
          
