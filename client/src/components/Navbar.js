@@ -99,7 +99,7 @@ class Navbar extends React.Component {
       }
     };
     function myFunction() {
-    
+    console.log("show")
       document.getElementById("myDropdown").classList.toggle("show");
     }
   return (
@@ -139,7 +139,6 @@ class Navbar extends React.Component {
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
-              onClick={myFunction}
             >
               Products
             </a>

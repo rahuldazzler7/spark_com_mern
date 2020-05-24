@@ -45,10 +45,11 @@ class Amazn extends React.Component{
         
     }
     clickMe(e){
-              this.setState({
-                query: e.target.id
-              })  
-              axios.get(`/filter?cat=${this.state.query}`)    
+            this.state={
+                catquery: e.target.id
+            }  
+              //console.log(this.state.catquery)
+              axios.get(`/filter?cat=${this.state.catquery}`)    
             
               .then(res=>{
                   this.setState({
