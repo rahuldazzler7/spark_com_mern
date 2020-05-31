@@ -85,7 +85,12 @@ let createPost = (req, res) => {
                   });
                   console.log("Your post is successfully uploaded");
                 })
-                .catch((err) => console.log(err));
+                .catch((err) => {
+                  res.json({
+                    status: false,
+                    msg: err,
+                  });
+                  console.log(err)});
             }
           });
         }

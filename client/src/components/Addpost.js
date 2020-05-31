@@ -103,7 +103,7 @@ class Addpost extends React.Component {
           if (result.data.status == true) {
             console.log(result.data.msg);
             
-            this.props.history.push("/")
+            //this.props.history.push("/")
           } 
           if (result.data.status == false) {
             console.log(result.data.msg);
