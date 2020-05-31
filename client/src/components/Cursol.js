@@ -23,14 +23,13 @@ class Cursol extends React.Component {
     if(window.sessionStorage.getItem("token")){
     const tok = window.sessionStorage.getItem("token");
     axios
-      .get("/home", {
-        headers: { "x-auth-token": tok.slice(3) },
-      })
+      .get("/home")
       .then((res) => {
         this.setState({ postCollection: res.data.posts });
         console.log(res)
         //console.log("token>>" + sessionStorage.getItem("token"));
         //console.log("name >>" + sessionStorage.getItem("navName"));
+        //, {headers: { "x-auth-token": tok.slice(3) },}
       })
       .catch((err) => {
         console.log("something went wrong");
@@ -56,6 +55,7 @@ class Cursol extends React.Component {
             time={posts.timest.slice(0, 10)}
             key={i}
             author={posts.author}
+            type={posts.type}
           />
         );
       } else {
@@ -70,6 +70,7 @@ class Cursol extends React.Component {
             time={posts.timest.slice(0, 10)}
             key={i}
             author={posts.author}
+            type={posts.type}
           />
         );
       }

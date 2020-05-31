@@ -165,6 +165,9 @@ class Addpost extends React.Component {
                         <option value="Science & Technology">
                           Science & Technology
                         </option>
+                        <option value="Science & Technology">
+                          Science & Technology
+                        </option>
                         <option value="Travel">Travel</option>
                         <option value="Foods">Foods</option>
                         <option value="Sports">Sports</option>

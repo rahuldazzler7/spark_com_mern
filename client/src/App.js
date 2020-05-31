@@ -15,6 +15,8 @@ import Amazn from "./components/Amazn";
 import Signup from "./components/Signup";
 import Signin from "./components/Signin";
 import Addpost from "./components/Addpost";
+import Fullonepost from "./components/Fullonepost";
+import Comments from "./components/Comments"
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
           <Protectedroute path="/signup" component={Signup}/>
           <Protectedroute path="/signin" component={Signin}/>
           <Redirectroute path="/addpost" component={Addpost}/>
+          <Redirectroute path="/one" component={Fullonepost} />
+          <Route path="/pat" component={Comments} />
         </Switch>
       </Router>
     </div>

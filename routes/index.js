@@ -13,7 +13,7 @@ const router = express.Router();
 router.get("/signup");
 router.get("/signin");
 
-router.get("/home", auth, homeControl.getPosts);
+router.get("/home", homeControl.getPosts);
 router.get("/profile", auth, profileControl.getProfile);
 router.get("/edit/:id", blogcontrol.getEditblog )
 router.get("/amznprods", amznController.categories),

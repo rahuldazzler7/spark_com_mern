@@ -17,7 +17,7 @@ class Card extends React.Component{
     if (window.sessionStorage.getItem("username") == this.props.author){
       return(
         <div className="container" style={{paddingLeft: "550px"}}>
-        <Link to={`/edit/${this.props.id}`} >Edit</Link>
+        <Link class="btn btn-success btn-md btn-rounded mx-0" to={`/edit/${this.props.id}`} >Edit</Link>
       </div>
       )
     }
@@ -26,34 +26,36 @@ class Card extends React.Component{
   render(){
     //console.log(sessionStorage.getItem)
         return(
-            <div className="container">
-
-  <div id="cardly">
-    <div className="card border-info mb-3" >
-      <div className="row no-gutters" >
-        <div className="col-md-4" style={{height:80}}>
-          <img src={this.props.imgsrc}  className="card-img" alt="..." style={{maxHeight: "171px"}}></img>
-        </div>
-        <div className="col-md-8" >
-        { this.editAccess()}
-         
-          
-          <div className="card-body">
-            <h5 className="card-title">{this.props.title}</h5>
-           
-              <p className="card-text">{this.props.desc}</p>
-
-              <a href="" >continue reading</a>
-            
-            <p className="card-text"><small className="text-muted">{this.props.time}</small></p>
-          </div>
-        </div>
-      </div>
-  </div>
-  
-</div>
-
-</div>
+            <div>
+                 <div class="container mt-5">
+                  <section class="dark-grey-text">
+                    <div class="row align-items-center">
+                      <div class="col-lg-5">
+                        <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
+                          <img class="img-fluid" src={this.props.imgsrc} alt="Sample image"/>
+                          <a>
+                            <div class="mask rgba-white-slight"></div>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="col-lg-7">
+                        <a href="#!" class="green-text">
+                          <h6 class="font-weight-bold mb-3"><i class="fas fa-utensils pr-2"></i>{this.props.type}</h6>
+                        </a>
+                        
+                        <h4 class="font-weight-bold mb-3"><strong>{this.props.title}</strong></h4>
+                      
+                        <p>{this.props.desc}</p>
+                        
+                        <p>by <a><strong>{this.props.author}</strong></a>, {this.props.time}</p>
+                        { this.editAccess()}
+                        <a class="btn btn-success btn-md btn-rounded mx-0">Read more</a>
+                      </div>
+                    </div>
+                    <hr class="my-5"/> 
+                  </section>
+                  </div>
+            </div>
         )}
     
 }
