@@ -22,18 +22,7 @@ class Navbar extends React.Component {
   
  loginOptions(){
   if(this.props.profile){
-    window.onclick = function (event) {
-      if (!event.target.matches(".nav-link dropdown-toggle")) {
-        var dropdowns = document.getElementById("myDropdownprof");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains("show")) {
-            openDropdown.classList.remove("show");
-          }
-        }
-      }
-    };
+ 
     function profilenamecall() {
     
       document.getElementById("myDropdownprof").classList.toggle("show");

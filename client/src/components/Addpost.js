@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "../index.css";
+import Navbar from "./Navbar";
 
 class Addpost extends React.Component {
   constructor(props) {
@@ -103,7 +104,7 @@ class Addpost extends React.Component {
           if (result.data.status == true) {
             console.log(result.data.msg);
             
-            //this.props.history.push("/")
+            this.props.history.push("/")
           } 
           if (result.data.status == false) {
             console.log(result.data.msg);
@@ -128,51 +129,22 @@ class Addpost extends React.Component {
   render() {
     return (
       <div>
-        <div id="addpost">
-          <a type="button" data-toggle="modal" data-target="#postadd">
-            <i className="fas fa-plus my-float"></i>
-          </a>
-        </div>
-        <div
-          className="modal"
-          id="postadd"
-          tabIndex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">
-                  Add post
-                </h5>
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body">
-                <form onSubmit={this.onSubmitPost} encType="multipart/form-data">
-                  <fieldset>
-                    <div className="form-group">
-                      <label>Title</label>
-                      <input
-                        type="text"
+        <Navbar profile={window.sessionStorage.getItem("navName")} />
+        <div className="container" style={{paddingTop:"140px", width:"700px"}}>
+            <form onSubmit={this.onSubmitPost} encType="multipart/form-data">
+
+                <div className="form-group has-success">
+                <label className="form-control-label">Title</label>
+                <input  type="text"
                         className="form-control"
                         id="title"
                         value={this.state.title}
                         onChange={this.onChangeTitle}
                         placeholder="Title"
-                        required
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label>Description</label>
+                        required/>
+                </div>
+                <div className="form-group has-success">
+                      <label className="form-control-label">Description</label>
                       <textarea
                         className="form-control"
                         id="description"
@@ -181,9 +153,9 @@ class Addpost extends React.Component {
                         rows="3"
                         required
                       ></textarea>
-                    </div>
-                    <div className="form-group">
-                      <label>Type</label>
+                </div>
+                <div className="form-group has-success">
+                      <label className="form-control-label">Type</label>
                       <select
                         className="form-control"
                         id="type"
@@ -199,8 +171,8 @@ class Addpost extends React.Component {
                         <option value="Others">Others</option>
                       </select>
                     </div>
-                    <div className="form-group">
-                      <label>Select Picture</label>
+                    <div className="form-group has-success">
+                      <label className="form-control-label">Select Picture</label>
                       <input
                         type="file"
                         className="form-control-file"
@@ -210,24 +182,22 @@ class Addpost extends React.Component {
                         aria-describedby="fileHelp"
                       />
                     </div>
-                    <div className="modal-footer">
-                      <button
-                        type="button"
-                        className="btn btn-secondary"
-                        data-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                      <button type="submit" className="btn btn-primary">
-                        Submit
-                      </button>
-                    </div>
-                  </fieldset>
-                </form>
+
+            
+                
+            <div style={{ paddingTop:"10px"}}>
+                <button
+                type="submit"
+                className="btn btn-success btn-lg"
+                data-target="#signup"
+                role="button"
+              >
+                Add post
+              </button> 
               </div>
-            </div>
-          </div>
-        </div>
+                </form>
+                        
+                </div>
       </div>
     );
   }

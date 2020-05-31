@@ -8,11 +8,13 @@ import Cursol from "./components/Cursol";
 import Card from "./components/Card";
 import Start from "./components/Start";
 import Protectedroute from "./components/Protectedroute";
+import Redirectroute from "./components/Redirectroute";
 import Auth from "./services/Auth";
 import Editpost from "./components/Editpost"
 import Amazn from "./components/Amazn";
 import Signup from "./components/Signup";
 import Signin from "./components/Signin";
+import Addpost from "./components/Addpost";
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
           <Route path="/amazn" component={Amazn} />
           <Protectedroute path="/signup" component={Signup}/>
           <Protectedroute path="/signin" component={Signin}/>
+          <Redirectroute path="/addpost" component={Addpost}/>
         </Switch>
       </Router>
     </div>

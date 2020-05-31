@@ -6,6 +6,7 @@ import Card from "./Card";
 import Navbar from "./Navbar";
 import Addpost from "./Addpost";
 import tokken from "./Start";
+import {Link} from 'react-router-dom'
 
 class Cursol extends React.Component {
   constructor(props) {
@@ -146,7 +147,11 @@ class Cursol extends React.Component {
           </div>
         </div>
         {this.postcard()}
-        <Addpost />
+        <div id="addpost">
+          <Link type="button" to="/addpost" style={{color:"white"}}>
+            <i className="fas fa-plus my-float"></i>
+          </Link>
+        </div>
       </div>
     );
   }

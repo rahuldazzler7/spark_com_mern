@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import Start from "./Start";
-import Addpost from "./Addpost";
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
   return (
@@ -9,17 +8,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
       {...rest}
       render={(props) => {
         if (window.sessionStorage.getItem("token")) {
-          return (<div>
-              <Component {...props} />
-              <Redirect
-              to={{
-                pathname: "/home",
-                state: {
-                  from: props.location[0],
-                },
-              }}
-            />
-          </div>)
+          return <Component {...props} />;
         } else {
           return (
             <div>
@@ -28,7 +17,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
               to={{
                 pathname: "/",
                 state: {
-                  from: props.location[0],
+                  from: props.location,
                 },
               }}
             />
