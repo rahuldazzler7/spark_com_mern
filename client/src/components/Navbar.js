@@ -22,11 +22,7 @@ class Navbar extends React.Component {
   
  loginOptions(){
   if(this.props.profile){
- 
-    function profilenamecall() {
-    
-      document.getElementById("myDropdownprof").classList.toggle("show");
-    }
+
     
       return(
         <div className="nav-item dropdown" style={{paddingRight:"20px"}}>
@@ -39,7 +35,6 @@ class Navbar extends React.Component {
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
-              onClick={profilenamecall}
             >
               {this.props.profile}
             </a>
@@ -155,10 +150,11 @@ class Navbar extends React.Component {
                 </a>
               </li>
             </ul>
+            <div>{this.props.searchbox}</div>
+          <div>{this.loginOptions()}</div>
           </div>
 
-           <div>{this.props.searchbox}</div>
-          <div>{this.loginOptions()}</div>
+           
           
         </nav>
       </section>

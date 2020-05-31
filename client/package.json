@@ -35,5 +35,5 @@
     ]
   },
   "devDependencies": {},
-  "proxy": "https://sparkrs.herokuapp.com/"
+  "proxy": "http://localhost:8000/"
 }
